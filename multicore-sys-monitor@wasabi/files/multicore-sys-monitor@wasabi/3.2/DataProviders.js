@@ -143,13 +143,13 @@ MemDataProvider.prototype = {
 
   //Name to be displayed for this data provider
   getName: function() {
-    return _("MEME");
+    return _("MEMEEE");
   },
 
   getTooltipString: function() {
     if (!this.isEnabled)
       return "";
-    var tooltipstr = _("------- Memory -------") + "\n";
+    var tooltipstr = _("------- Memory ---asassa----") + "\n";
     tooltipstr += _("Usedup:") + "\t" + Math.round(100 * this.memInfo[0]).toString() + "%\n";
     tooltipstr += _("Cached:") + "\t" + Math.round(100 * this.memInfo[1]).toString() + "%\n";
     tooltipstr += _("Buffer:") + "\t" + Math.round(100 * this.memInfo[2]).toString() + "%\n";

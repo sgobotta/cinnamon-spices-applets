@@ -141,7 +141,7 @@ MemDataProvider.prototype = {
 
   //Name to be displayed for this data provider
   getName: function() {
-    return _("MEM");
+    return _("MEMEEEE");
   },
 
   getTooltipString: function() {
