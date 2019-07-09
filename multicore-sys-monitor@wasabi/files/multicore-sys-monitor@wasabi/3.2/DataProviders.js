@@ -3,7 +3,7 @@ const GTop = imports.gi.GTop; //psst this is really the one used
 const NMClient = imports.gi.NMClient;
 const NetworkManager = imports.gi.NetworkManager;
 const Gio = imports.gi.Gio;
-const UUID = "multicore-sys-monitor@wasabi";
+const UUID = "multicore-sys-monitor@ccadeptic23";
 const GLib = imports.gi.GLib;
 const Gettext = imports.gettext;
 
@@ -13,12 +13,12 @@ function _(str) {
   return Gettext.dgettext(UUID, str);
 }
 
-function MultiCpuDataProvider() {
-  this._init();
+function MultiCpuDataProvider(customConfig) {
+  this._init(customConfig);
 }
 MultiCpuDataProvider.prototype = {
 
-  _init: function() {
+  _init: function(customConfig) {
     this.isEnabled = true;
     this.gtop = new GTop.glibtop_cpu();
     this.cpucount = 0;
@@ -37,6 +37,8 @@ MultiCpuDataProvider.prototype = {
     this.cpulist_user = [];
 
     this.cpulist_usage = [];
+
+    this.customConfig = customConfig
 
     this.getData(); //initialize the values from the first readding
   },
@@ -100,7 +102,7 @@ MultiCpuDataProvider.prototype = {
   getTooltipString: function() {
     if (!this.isEnabled)
       return "";
-    var tooltipstr = _("------- CPU -------") + "\n";
+    var tooltipstr = _(this.customConfig.getTooltipString() || "------- CPU -------") + "\n";
     tooltipstr += _("CPU"); + ": "
     for (var i = 0; i < this.cpucount; i++)
       tooltipstr += Math.round(100 * this.cpulist_usage[i], 2).toString() + "% ";
@@ -141,7 +143,7 @@ MemDataProvider.prototype = {
 
   //Name to be displayed for this data provider
   getName: function() {
-    return _("MEM");
+    return _("MEME");
   },
 
   getTooltipString: function() {

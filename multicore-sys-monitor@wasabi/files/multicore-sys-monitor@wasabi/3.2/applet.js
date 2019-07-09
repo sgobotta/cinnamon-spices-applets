@@ -16,7 +16,7 @@
  * 5 /usr/share/mdm/gjs-1.0
  * 6 /usr/lib/gjs-1.0
  * 7 /usr/share/gjs-1.0
- * 8 ~/.local/share/cinnamon/applets/multicore-sys-monitor@wasabi (via metadata)
+ * 8 ~/.local/share/cinnamon/applets/multicore-sys-monitor@ccadeptic23 (via metadata)
  * */
 var ImportError = false; //flag import error
 var ImportErrorMsg = "";
@@ -31,7 +31,7 @@ try {
   var Cinnamon = imports.gi.Cinnamon;
   var Gettext = imports.gettext;
   var GTop = imports.gi.GTop; //psst this is really only to see if we can
-  var UUID = "multicore-sys-monitor@wasabi";
+  var UUID = "multicore-sys-monitor@ccadeptic23";
   var SpawnProcess = null; //defined in main (my library)
   var ErrorApplet = null; //defined in main (my library)
   var ConfigSettings = null; //defined in main (my library)
@@ -80,7 +80,16 @@ MyApplet.prototype = {
     this.graphArea.height = this.configSettings.getHeight();
     this.graphArea.connect('repaint', Lang.bind(this, this.onGraphRepaint));
 
-    this.multiCpuProvider = new DataProviders.MultiCpuDataProvider();
+    var config = function (provider) {
+      var configs = {
+        cpu: {
+          getTooltipString: function() { returns: 'CPPP' }
+        }
+      }
+      return configs[provider];
+    }
+
+    this.multiCpuProvider = new DataProviders.MultiCpuDataProvider(config('cpu'));
     //resize the cpucolorslist from the potential newcpucount
     this.configSettings.adjustCPUcount(this.multiCpuProvider.getCPUCount());
 
