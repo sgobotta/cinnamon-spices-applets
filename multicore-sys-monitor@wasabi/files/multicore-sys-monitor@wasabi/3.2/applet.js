@@ -16,7 +16,7 @@
  * 5 /usr/share/mdm/gjs-1.0
  * 6 /usr/lib/gjs-1.0
  * 7 /usr/share/gjs-1.0
- * 8 ~/.local/share/cinnamon/applets/multicore-sys-monitor@ccadeptic23 (via metadata)
+ * 8 ~/.local/share/cinnamon/applets/multicore-sys-monitor@wasabi (via metadata)
  * */
 var ImportError = false; //flag import error
 var ImportErrorMsg = "";
@@ -31,7 +31,7 @@ try {
   var Cinnamon = imports.gi.Cinnamon;
   var Gettext = imports.gettext;
   var GTop = imports.gi.GTop; //psst this is really only to see if we can
-  var UUID = "multicore-sys-monitor@ccadeptic23";
+  var UUID = "multicore-sys-monitor@wasabi";
   var SpawnProcess = null; //defined in main (my library)
   var ErrorApplet = null; //defined in main (my library)
   var ConfigSettings = null; //defined in main (my library)

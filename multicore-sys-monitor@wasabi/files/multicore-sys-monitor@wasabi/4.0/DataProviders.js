@@ -125,7 +125,7 @@ function MemDataProvider() {
 MemDataProvider.prototype = {
 
   _init: function() {
-    this.name = _('MEMEEEE');
+    this.name = _('MEM');
     this.isEnabled = true;
     this.gtopMem = new GTop.glibtop_mem();
     this.memusage = 0;

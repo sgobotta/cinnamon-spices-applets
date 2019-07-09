@@ -3,7 +3,7 @@ const GTop = imports.gi.GTop; //psst this is really the one used
 const NMClient = imports.gi.NMClient;
 const NetworkManager = imports.gi.NetworkManager;
 const Gio = imports.gi.Gio;
-const UUID = "multicore-sys-monitor@ccadeptic23";
+const UUID = "multicore-sys-monitor@wasabi";
 const GLib = imports.gi.GLib;
 const Gettext = imports.gettext;
 
@@ -143,7 +143,7 @@ MemDataProvider.prototype = {
 
   //Name to be displayed for this data provider
   getName: function() {
-    return _("MEMEEE");
+    return _("MEME");
   },
 
   getTooltipString: function() {
