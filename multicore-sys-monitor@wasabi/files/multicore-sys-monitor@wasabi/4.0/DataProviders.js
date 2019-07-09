@@ -7,25 +7,15 @@ if (typeof require !== 'undefined') {
   _ = utils._;
   tryFn = utils.tryFn;
 } else {
-  const AppletDir = imports.ui.appletManager.applets['multicore-sys-monitor@ccadeptic23'];
+  const AppletDir = imports.ui.appletManager.applets['multicore-sys-monitor@wasabi'];
   _ = AppletDir.utils._;
   tryFn = AppletDir.utils.tryFn;
 }
 
-let CONNECTED_STATE, NMClient_new, newNM;
-// Fallback to the new version.
-tryFn(function() {
-  const NMClient = imports.gi.NMClient;
-  const NetworkManager = imports.gi.NetworkManager;
-  CONNECTED_STATE = NetworkManager.DeviceState ? NetworkManager.DeviceState.ACTIVATED : 0;
-  NMClient_new = NMClient.Client.new;
-  newNM = false;
-}, function() {
-  const NM = imports.gi.NM;
-  CONNECTED_STATE = NM.DeviceState.ACTIVATED;
-  NMClient_new = NM.Client.new;
-  newNM = true;
-});
+let CONNECTED_STATE, NMClient_new;
+const NM = imports.gi.NM;
+CONNECTED_STATE = NM.DeviceState.ACTIVATED;
+NMClient_new = NM.Client.new;
 
 tryFn(function() {
   GTop = imports.gi.GTop;
@@ -202,8 +192,7 @@ NetDataProvider.prototype = {
     this.name = _('NET');
     this.isEnabled = true;
     this.gtop = new GTop.glibtop_netload();
-    let args = newNM ? [null] : [];
-    this.nmClient = NMClient_new.apply(this, args);
+    this.nmClient = NMClient_new(null);
     this.signals = [
       this.nmClient.connect('device-added', () => this.getNetDevices()),
       this.nmClient.connect('device-removed', () => this.getNetDevices())

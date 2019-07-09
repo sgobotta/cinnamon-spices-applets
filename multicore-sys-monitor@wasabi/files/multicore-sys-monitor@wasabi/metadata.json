@@ -1,5 +1,5 @@
 {
-    "uuid": "multicore-sys-monitor@ccadeptic23",
+    "uuid": "multicore-sys-monitor@wasabi",
     "name": "Multi-Core System Monitor",
     "version": "1.8.7",
     "description": "Displays in realtime the cpu usage for each core/cpu and overall memory usage.",

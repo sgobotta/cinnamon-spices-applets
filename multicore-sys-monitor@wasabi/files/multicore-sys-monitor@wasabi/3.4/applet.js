@@ -21,7 +21,7 @@ const Util = imports.misc.util;
 const Main = imports.ui.main;
 const Applet = imports.ui.applet;
 
-const UUID = 'multicore-sys-monitor@ccadeptic23';
+const UUID = 'multicore-sys-monitor@wasabi';
 
 let _, tryFn, ConfigSettings, SpawnProcess, Graphs, DataProviders;
 if (typeof require !== 'undefined') {
@@ -52,7 +52,7 @@ tryFn(function() {
     gicon: new Gio.FileIcon({
       file: Gio.file_new_for_path(
         GLib.get_home_dir() +
-        '/.local/share/cinnamon/applets/multicore-sys-monitor@ccadeptic23/3.4/icon.png'
+        '/.local/share/cinnamon/applets/multicore-sys-monitor@wasabi/3.4/icon.png'
       )
     })
   });

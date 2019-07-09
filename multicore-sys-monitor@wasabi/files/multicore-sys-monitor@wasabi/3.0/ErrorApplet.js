@@ -1,5 +1,5 @@
 //#!/usr/bin/gjs
-const UUID = "multicore-sys-monitor@ccadeptic23";
+const UUID = "multicore-sys-monitor@wasabi";
 const Lang = imports.lang;
 const Applet = imports.ui.applet;
 const GLib = imports.gi.GLib;

@@ -1,61 +1,60 @@
-# Polish translation for multicore-sys-monitor@ccadeptic23.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# xearonet, 2018.
+# FRENCH TRANSLATION OF multicore-sys-monitor@wasabi APPLET
+# Copyright (C) 2019 Claude CLERC
+# This file is distributed under the same license as the Cinnamon package.
+# claudiux <claude.clerc@gmail.com>, 2019.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-27 11:20-0500\n"
-"PO-Revision-Date: 2018-04-06 23:29+0200\n"
-"Last-Translator: xearonet\n"
+"POT-Creation-Date: 2018-09-27 11:22-0500\n"
+"PO-Revision-Date: 2019-01-24 01:38+0100\n"
 "Language-Team: \n"
-"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Poedit 2.0.6\n"
+"Last-Translator: Claude CLERC <claude.clerc@gmail.com>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: fr\n"
 
 #: ../3.0/prefsui.glade.h:1 ../3.2/prefsui.glade.h:1 ../3.4/prefsui.glade.h:1
 msgid "Multi-Core System Monitor Preferences"
-msgstr "Ustawienia dla Multi-Core System Monitor"
+msgstr "Préférences de Multi-Core System Monitor"
 
 #: ../3.0/prefsui.glade.h:2 ../3.2/prefsui.glade.h:2 ../3.4/prefsui.glade.h:2
 msgid "Labels"
-msgstr "Etykiety"
+msgstr "Étiquettes"
 
 #: ../3.0/prefsui.glade.h:3 ../3.2/prefsui.glade.h:3 ../3.4/prefsui.glade.h:3
 msgid "Resfresh Rate (ms)"
-msgstr "Czas odświeżania"
+msgstr "Fréquence de rafraîchissement (ms)"
 
 #: ../3.0/prefsui.glade.h:4 ../3.2/prefsui.glade.h:4
 msgid "Height"
-msgstr "Wysokość"
+msgstr "Hauteur"
 
 #: ../3.0/prefsui.glade.h:5 ../3.2/prefsui.glade.h:6 ../3.4/prefsui.glade.h:5
 msgid "Background Color"
-msgstr "Kolor tła"
+msgstr "Couleur d’arrière-plan"
 
 #: ../3.0/prefsui.glade.h:6 ../3.2/prefsui.glade.h:7 ../3.4/prefsui.glade.h:6
 msgid "General"
-msgstr "Ogólne"
+msgstr "Général"
 
 #: ../3.0/prefsui.glade.h:7 ../3.2/prefsui.glade.h:8 ../3.4/prefsui.glade.h:7
 #: ../3.0/prefs.js:279 ../3.0/prefs.js:393 ../3.2/prefs.js:283
 #: ../3.2/prefs.js:398 ../3.4/prefs.js:327 ../3.4/prefs.js:463
 msgid "Enable"
-msgstr "Włącz"
+msgstr "Activer"
 
 #: ../3.0/prefsui.glade.h:8 ../3.2/prefsui.glade.h:9 ../3.4/prefsui.glade.h:8
 msgid "Width"
-msgstr "Szerokość"
+msgstr "Largeur"
 
 #: ../3.0/prefsui.glade.h:9 ../3.2/prefsui.glade.h:10 ../3.4/prefsui.glade.h:9
 msgid "Colors"
-msgstr "Kolory"
+msgstr "Couleurs"
 
 #: ../3.0/prefsui.glade.h:10 ../3.2/prefsui.glade.h:11
 #: ../3.4/prefsui.glade.h:10 ../3.0/DataProviders.js:97
@@ -68,22 +67,22 @@ msgstr "CPU"
 #: ../3.0/prefsui.glade.h:11 ../3.2/prefsui.glade.h:12
 #: ../3.4/prefsui.glade.h:11
 msgid "Usedup"
-msgstr "Użyta"
+msgstr "Utilisée"
 
 #: ../3.0/prefsui.glade.h:12 ../3.2/prefsui.glade.h:13
 #: ../3.4/prefsui.glade.h:12
 msgid "Cached"
-msgstr "Podręczna"
+msgstr "Cache"
 
 #: ../3.0/prefsui.glade.h:13 ../3.2/prefsui.glade.h:14
 #: ../3.4/prefsui.glade.h:13
 msgid "Buffer"
-msgstr "Buforowa"
+msgstr "Tampon"
 
 #: ../3.0/prefsui.glade.h:14 ../3.2/prefsui.glade.h:15
 #: ../3.4/prefsui.glade.h:14
 msgid "Free"
-msgstr "Wolna"
+msgstr "Libre"
 
 #: ../3.0/prefsui.glade.h:15 ../3.2/prefsui.glade.h:16
 #: ../3.4/prefsui.glade.h:15 ../3.0/DataProviders.js:187
@@ -94,47 +93,47 @@ msgstr "Swap"
 #: ../3.0/prefsui.glade.h:16 ../3.2/prefsui.glade.h:17
 #: ../3.4/prefsui.glade.h:16
 msgid "Memory"
-msgstr "Pamięć"
+msgstr "Mémoire"
 
 #: ../3.0/prefsui.glade.h:17 ../3.2/prefsui.glade.h:18
 #: ../3.4/prefsui.glade.h:17
 msgid "Scaling"
-msgstr "Skala"
+msgstr "Mise à l'échelle"
 
 #: ../3.0/prefsui.glade.h:18 ../3.2/prefsui.glade.h:19
 #: ../3.4/prefsui.glade.h:18
 msgid "Auto Scale"
-msgstr "Autoskalowanie"
+msgstr "Automatique"
 
 #: ../3.0/prefsui.glade.h:19 ../3.2/prefsui.glade.h:20
 #: ../3.4/prefsui.glade.h:19
 msgid "Logarithmic"
-msgstr "Logarytmiczna"
+msgstr "Logarithmique"
 
 #: ../3.0/prefsui.glade.h:20 ../3.2/prefsui.glade.h:21
 #: ../3.4/prefsui.glade.h:20
 msgid "Devices"
-msgstr "Interfejsy"
+msgstr "Interfaces"
 
 #: ../3.0/prefsui.glade.h:21 ../3.2/prefsui.glade.h:22
 #: ../3.4/prefsui.glade.h:21
 msgid "Network"
-msgstr "Sieć"
+msgstr "Réseau"
 
 #: ../3.0/prefsui.glade.h:22 ../3.2/prefsui.glade.h:23
 #: ../3.4/prefsui.glade.h:22
 msgid "Disk IO"
-msgstr "Dysk"
+msgstr "Disque E/L"
 
 #: ../3.0/prefsui.glade.h:23 ../3.2/prefsui.glade.h:24
 #: ../3.4/prefsui.glade.h:23
 msgid "Scaling Description"
-msgstr "Opis skalowania"
+msgstr "Mise à l'échelle"
 
 #: ../3.0/prefsui.glade.h:24 ../3.2/prefsui.glade.h:25
 #: ../3.4/prefsui.glade.h:24
 msgid "Close"
-msgstr "Zamknij"
+msgstr "Fermer"
 
 #: ../3.0/prefsui.glade.h:25 ../3.2/prefsui.glade.h:26
 #: ../3.4/prefsui.glade.h:25
@@ -155,65 +154,64 @@ msgid ""
 "\tlogarithmic scale. If you are not familiar basically, it reduces the\n"
 "\tlarge values so that they dont dominate the smaller readings."
 msgstr ""
-"Automatyczne skalowanie:\n"
-"Spowoduje to przeskalowanie wykresu liniowego względem \n"
-"największego odczytu w obrębie wyświetlanego obszaru. Gdy największy "
-"odczyt \n"
-"nie jest już wyświetlany, następny największy staje się nową wartością, \n"
-"względem której odczyty są skalowane. To pozwala działce \"zoom\" pokazać \n"
-"szczegóły wykresu. Jednak oznacza to, że jeśli jest duży odczyt, małe "
-"odczyty \n"
-"mogą stać się nie do odróżnienia od 0. Jeśli natomiast są tylko małe "
-"odczyty, to nieco \n"
-"większe odczyty mogą wydawać się większe niż powinny. Jeśli nie jest "
-"włączona, \n"
-"największą użytą wartością będzie największy odczyt od czasu startu "
-"Cinnamona.\n"
+"Mise à l'échelle automatique:\n"
+"\tCela permet de mettre à l'échelle le graphique linéaire en fonction\n"
+"\tde la valeur maximale présente dans la zone d'affichage. Une fois\n"
+"\tque cette valeur maximale n'est plus affichée, la valeur maximale\n"
+"\tsuivante devient la nouvelle référence pour la mise à l'échelle.\n"
+"\tCela crée des effets de zoom (avant ou arrière) afin que le graphique\n"
+"\toccupe en permanence toute la hauteur de la zone d'affichage.\n"
+"\tCependant, cela signifie également que s’il survient une valeur très\n"
+"\timportante, alors les petites valeurs peuvent devenir impossibles à\n"
+"\tdistinguer de 0. Et s’il n’y a que de petites valeurs, alors des valeurs\n"
+"\tlégèrement plus grandes peuvent sembler plus importantes qu’elles\n"
+"\tne le sont en réalité.\n"
+"\tSi la mise à l'échelle automatique est désactivée, la valeur maximale\n"
+"\tutilisée sera la plus grande valeur rencontrée depuis le démarrage\n"
+"\tde Cinnamon.\n"
 "\n"
-"Skalowanie logarytmiczne:\n"
-"Przekształca odczyty tak, że są wyświetlane przy użyciu skali "
-"logarytmicznej. \n"
-"Jeśli nie rozumiesz, w zasadzie to redukuje większe wartości, aby nie "
-"dominowały \n"
-"mniejszych odczytów."
+"Mise à l'échelle logarithmique:\n"
+"\tCela transforme les valeurs de sorte qu'elles s'affichent à l'aide d'une\n"
+"\téchelle logarithmique. Cela permet de réduire les grandes valeurs\n"
+"\tafin qu'elles n'écrasent pas les plus petites valeurs."
 
 #: ../3.2/prefsui.glade.h:5 ../3.4/prefsui.glade.h:4
 msgid "Label Color"
-msgstr "Kolor etykiety"
+msgstr "Couleur des étiquettes"
 
 #: ../3.0/DataProviders.js:103 ../3.2/DataProviders.js:103
 #: ../3.4/DataProviders.js:123
 msgid "------- CPU -------"
-msgstr "------- CPU -------"
+msgstr "------- Processeurs -------"
 
 #: ../3.0/DataProviders.js:144 ../3.2/DataProviders.js:144
 #: ../3.4/DataProviders.js:138
 msgid "MEM"
-msgstr "MEM"
+msgstr "MÉM"
 
 #: ../3.0/DataProviders.js:150 ../3.2/DataProviders.js:150
 #: ../3.4/DataProviders.js:158
 msgid "------- Memory -------"
-msgstr "------- Pamięć -------"
+msgstr "------- Mémoire -------"
 
 #: ../3.0/DataProviders.js:151 ../3.2/DataProviders.js:151
 msgid "Usedup:"
-msgstr "Użyta:"
+msgstr "Utilisée :"
 
 #: ../3.0/DataProviders.js:152 ../3.2/DataProviders.js:152
 #: ../3.4/DataProviders.js:159
 msgid "Cached:"
-msgstr "Podręczna:"
+msgstr "Cache :"
 
 #: ../3.0/DataProviders.js:153 ../3.2/DataProviders.js:153
 #: ../3.4/DataProviders.js:159
 msgid "Buffer:"
-msgstr "Buforowa:"
+msgstr "Tampon :"
 
 #: ../3.0/DataProviders.js:154 ../3.2/DataProviders.js:154
 #: ../3.4/DataProviders.js:159
 msgid "Free:"
-msgstr "Wolna:"
+msgstr "Libre :"
 
 #: ../3.0/DataProviders.js:181 ../3.2/DataProviders.js:181
 #: ../3.4/DataProviders.js:173
@@ -228,22 +226,22 @@ msgstr "------- Swap -------"
 #: ../3.0/DataProviders.js:251 ../3.2/DataProviders.js:251
 #: ../3.4/DataProviders.js:202
 msgid "NET"
-msgstr "NET"
+msgstr "RÉSEAU"
 
 #: ../3.0/DataProviders.js:292 ../3.2/DataProviders.js:292
 #: ../3.4/DataProviders.js:286
 msgid "------- Networks -------"
-msgstr "--------- Sieci ---------"
+msgstr "------- Réseaux -------"
 
 #: ../3.0/DataProviders.js:294 ../3.2/DataProviders.js:294
 #: ../3.4/DataProviders.js:297
 msgid "Down:"
-msgstr "Pobieranie:"
+msgstr "Reçu :"
 
 #: ../3.0/DataProviders.js:294 ../3.2/DataProviders.js:294
 #: ../3.4/DataProviders.js:298
 msgid "Up:"
-msgstr "Wysyłanie:"
+msgstr "Envoyé :"
 
 #: ../3.0/DataProviders.js:295 ../3.2/DataProviders.js:295
 msgid "(KiB/s)"
@@ -252,22 +250,22 @@ msgstr "(KiB/s)"
 #: ../3.0/DataProviders.js:368 ../3.2/DataProviders.js:368
 #: ../3.4/DataProviders.js:314
 msgid "DISK"
-msgstr "DISK"
+msgstr "DISQUES"
 
 #: ../3.0/DataProviders.js:394 ../3.2/DataProviders.js:394
 #: ../3.4/DataProviders.js:375
 msgid "------- Disks -------"
-msgstr "------- Dyski -------"
+msgstr "------- Disques -------"
 
 #: ../3.0/DataProviders.js:396 ../3.2/DataProviders.js:396
 #: ../3.4/DataProviders.js:383
 msgid "Read:"
-msgstr "Odczyt:"
+msgstr "Lecture :"
 
 #: ../3.0/DataProviders.js:396 ../3.2/DataProviders.js:396
 #: ../3.4/DataProviders.js:384
 msgid "Write:"
-msgstr "Zapis:"
+msgstr "Écriture :"
 
 #: ../3.0/DataProviders.js:397 ../3.2/DataProviders.js:397
 msgid "(MiB/s)"
@@ -276,35 +274,35 @@ msgstr "(MiB/s)"
 #: ../3.0/ErrorApplet.js:28 ../3.0/ErrorApplet.js:34 ../3.2/ErrorApplet.js:28
 #: ../3.2/ErrorApplet.js:34
 msgid "Multi-Core System Monitor Error."
-msgstr "Błąd Multi-Core System Monitor."
+msgstr "Multi-Core System Monitor Erreur."
 
 #: ../3.0/applet.js:132 ../3.2/applet.js:129 ../3.4/applet.js:254
 msgid "Preferences"
-msgstr "Ustawienia"
+msgstr "Préférences"
 
 #: ../3.0/applet.js:313 ../3.2/applet.js:324
 msgid "Please install \"gir1.2-gtop-2.0\" package."
-msgstr "Zainstaluj paczkę \"gir1.2-gtop-2.0\"."
+msgstr "Veuillez installer le paquet \"gir1.2-gtop-2.0\"."
 
 #: ../3.0/prefs.js:290 ../3.2/prefs.js:294 ../3.4/prefs.js:338
 msgid "Down"
-msgstr "Pobieranie "
+msgstr "Reçu"
 
 #: ../3.0/prefs.js:298 ../3.2/prefs.js:302 ../3.4/prefs.js:346
 msgid "Up"
-msgstr "Wysyłanie "
+msgstr "Envoyé"
 
 #: ../3.0/prefs.js:406 ../3.2/prefs.js:414 ../3.4/prefs.js:479
 msgid "Read"
-msgstr "Odczyt "
+msgstr "Lecture "
 
 #: ../3.0/prefs.js:414 ../3.2/prefs.js:423 ../3.4/prefs.js:488
 msgid "Write"
-msgstr "Zapis "
+msgstr "Écriture "
 
 #: ../3.0/prefs.js:530 ../3.2/prefs.js:540
 msgid "Error while saving file:"
-msgstr "Błąd podczas zapisywania pliku:"
+msgstr "Erreur durant la sauvegarde du fichier :"
 
 #: ../3.4/DataProviders.js:46
 msgid "/s"
@@ -312,15 +310,15 @@ msgstr "/s"
 
 #: ../3.4/DataProviders.js:126
 msgid "Core"
-msgstr "Rdzeń"
+msgstr "Cœur"
 
 #: ../3.4/DataProviders.js:159
 msgid "Used:"
-msgstr "Użyta:"
+msgstr "Utilisé :"
 
 #: ../3.4/applet.js:60
 msgid "Dependency missing"
-msgstr ""
+msgstr "Dépendances manquantes"
 
 #: ../3.4/applet.js:62
 msgid ""
@@ -330,13 +328,8 @@ msgid ""
 "\tArch: libgtop\n"
 "to use "
 msgstr ""
-
-#~ msgid "Multi-Core System Monitor"
-#~ msgstr "Multi-Core System Monitor"
-
-#~ msgid ""
-#~ "Displays in realtime the cpu usage for each core/cpu and overall memory "
-#~ "usage."
-#~ msgstr ""
-#~ "Wyświetla w czasie rzeczywistym użycie procesora dla każdego rdzenia/CPU "
-#~ "i ogólne zużycie pamięci."
+"Veuillez installer le paquet GTop\n"
+"\tUbuntu / Mint: gir1.2-gtop-2.0\n"
+"\tFedora: libgtop2-devel\n"
+"\tArch: libgtop\n"
+"pour utiliser "

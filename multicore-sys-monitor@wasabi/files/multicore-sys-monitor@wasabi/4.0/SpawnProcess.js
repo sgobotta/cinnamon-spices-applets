@@ -7,7 +7,7 @@ let tryFn;
 if (typeof require !== 'undefined') {
   tryFn = require('./utils').tryFn;
 } else {
-  const AppletDir = imports.ui.appletManager.applets['multicore-sys-monitor@ccadeptic23'];
+  const AppletDir = imports.ui.appletManager.applets['multicore-sys-monitor@wasabi'];
   tryFn = AppletDir.utils.tryFn;
 
 }

@@ -7,7 +7,7 @@
 //
 // You should have received a copy of the GNU General Public License along with
 // this file. If not, see <http://www.gnu.org/licenses/>.
-/*  Imports SearchPath
+/*	Imports SearchPath
  * 0 /usr/share/cinnamon/js
  * 1 /usr/share/cinnamon/gjs-1.0
  * 2 /usr/share/gnome/gjs-1.0
@@ -16,22 +16,25 @@
  * 5 /usr/share/mdm/gjs-1.0
  * 6 /usr/lib/gjs-1.0
  * 7 /usr/share/gjs-1.0
- * 8 ~/.local/share/cinnamon/applets/multicore-sys-monitor@ccadeptic23 (via metadata)
+ * 8 ~/.local/share/cinnamon/applets/multicore-sys-monitor@wasabi (via metadata)
  * */
 var ImportError = false; //flag import error
 var ImportErrorMsg = "";
-
 try {
-  var Applet = imports.ui.applet;
-  var Lang = imports.lang;
-  var Mainloop = imports.mainloop;
-  var St = imports.gi.St;
-  var Gtk = imports.gi.Gtk;
-  var GLib = imports.gi.GLib;
-  var Cinnamon = imports.gi.Cinnamon;
-  var Gettext = imports.gettext;
-  var GTop = imports.gi.GTop; //psst this is really only to see if we can
-  var UUID = "multicore-sys-monitor@ccadeptic23";
+  const Applet = imports.ui.applet;
+  const Lang = imports.lang;
+  const Mainloop = imports.mainloop;
+  const St = imports.gi.St;
+  //const Cairo = imports.cairo;
+  const Gio = imports.gi.Gio;
+  const Gtk = imports.gi.Gtk;
+  const GLib = imports.gi.GLib;
+  const NMClient = imports.gi.NMClient;
+  const NetworkManager = imports.gi.NetworkManager;
+  const Cinnamon = imports.gi.Cinnamon;
+  const Gettext = imports.gettext;
+  const GTop = imports.gi.GTop; //psst this is really only to see if we can
+  const UUID = "multicore-sys-monitor@wasabi";
   var SpawnProcess = null; //defined in main (my library)
   var ErrorApplet = null; //defined in main (my library)
   var ConfigSettings = null; //defined in main (my library)
@@ -63,36 +66,33 @@ MyApplet.prototype = {
 
     Applet.Applet.prototype._init.call(this, orientation);
 
-    this.childProcessHandler = null;
+    try {
+      this.childProcessHandler = null;
 
-    this.metadata = metadata;
-    this.configfilepath = this.metadata.path; //apparently this is predefined which is nice to know
+      this.metadata = metadata;
+      this.configfilepath = this.metadata.path; //apparently this is predefined which is nice to know
 
-    this.configSettings = new ConfigSettings(this.configfilepath);
+      this.configSettings = new ConfigSettings(this.configfilepath);
 
-    this._initContextMenu();
+      this._initContextMenu();
 
-    //this.gtop = new GTop.glibtop_cpu();
+      this.gtop = new GTop.glibtop_cpu();
 
-    this.graphArea = new St.DrawingArea();
+      this.graphArea = new St.DrawingArea();
 
-    this.graphArea.width = this.getAppletWidth();
-    this.graphArea.height = this.configSettings.getHeight();
-    this.graphArea.connect('repaint', Lang.bind(this, this.onGraphRepaint));
+      this.graphArea.width = this.getAppletWidth();
+      this.graphArea.height = this.configSettings.getHeight();
+      this.graphArea.connect('repaint', Lang.bind(this, this.onGraphRepaint));
 
-    this.multiCpuProvider = new DataProviders.MultiCpuDataProvider();
-    //resize the cpucolorslist from the potential newcpucount
-    this.configSettings.adjustCPUcount(this.multiCpuProvider.getCPUCount());
+      this.multiCpuProvider = new DataProviders.MultiCpuDataProvider();
+      //resize the cpucolorslist from the potential newcpucount
+      this.configSettings.adjustCPUcount(this.multiCpuProvider.getCPUCount());
 
-    this.memProvider = new DataProviders.MemDataProvider();
-    this.swapProvider = new DataProviders.SwapDataProvider();
-
-    // Defer the remaining initialization as netProvider and diskProvider classes have been
-    // isolated with causing GTop init errors on mozjs38.
-    // Better fix should be considered.
-    Mainloop.idle_add_full(Mainloop.PRIORITY_DEFAULT, ()=>{
+      this.memProvider = new DataProviders.MemDataProvider();
+      this.swapProvider = new DataProviders.SwapDataProvider();
       this.netProvider = new DataProviders.NetDataProvider();
       this.diskProvider = new DataProviders.DiskDataProvider();
+
       this.configSettings.adjustDiskDevices(this.diskProvider.getDiskDevices());
       this.diskProvider.setDisabledDevices(this.configSettings.getDiskDisabledDevices());
 
@@ -122,7 +122,10 @@ MyApplet.prototype = {
 
       this.actor.add_actor(this.graphArea);
       this._update();
-    });
+
+    } catch (e) {
+      global.logError(e);
+    }
   },
 
   _initContextMenu: function() {
@@ -132,10 +135,9 @@ MyApplet.prototype = {
   },
   launchPreferences: function() {
     var currprefs = this.configSettings.getCurrentPreferencesString();
-    print(this.configfilepath, ["prefs.js", currprefs])
-    if (this.childProcessHandler == null) {
+
+    if (this.childProcessHandler == null)
       this.childProcessHandler = new SpawnProcess.ProcessSpawnHandler(this.configfilepath, ["prefs.js", currprefs]);
-    }
   },
   on_orientation_changed: function(orientation) {
     this._initContextMenu();
@@ -156,9 +158,9 @@ MyApplet.prototype = {
       if (this.childProcessHandler != null) {
         var currentmsg = this.childProcessHandler.getCurrentMessage();
 
-        if (currentmsg === "SAVE") {
+        if (currentmsg == "SAVE") {
           this.configSettings.saveSettings();
-        } else if (currentmsg !== "SAVE" && currentmsg !== "") //currentmsg is "" when we have not had time to read anything yet
+        } else if (currentmsg != "SAVE" && currentmsg != "") //currentmsg is "" when we have not had time to read anything yet
         {
           this.configSettings.updateSettings(currentmsg);
         }
@@ -209,24 +211,18 @@ MyApplet.prototype = {
   getAppletWidth: function() {
     var appwidth = 0;
 
-    if (this.configSettings.isCPUEnabled()) {
+    if (this.configSettings.isCPUEnabled())
       appwidth += this.configSettings.getCPUWidth() + 1;
-    }
-    if (this.configSettings.isMEMEnabled()) {
+    if (this.configSettings.isMEMEnabled())
       appwidth += this.configSettings.getMEMWidth() + 1;
-    }
-    if (this.configSettings.isNETEnabled()) {
+    if (this.configSettings.isNETEnabled())
       appwidth += this.configSettings.getNETWidth() + 1;
-    }
-    if (this.configSettings.isDiskEnabled()) {
+    if (this.configSettings.isDiskEnabled())
       appwidth += this.configSettings.getDiskWidth() + 1;
-    }
 
     appwidth--; //last one doesnt need the pixel space between
-    //prevents error when all are disabled
-    if (appwidth <= 0) {
+    if (appwidth <= 0) //prevents error when all are disabled
       appwidth = 1;
-    }
 
     return appwidth;
   },
@@ -240,7 +236,6 @@ MyApplet.prototype = {
           this.configSettings.getLabelsOn(),
           this.configSettings.getCPUWidth(),
           this.configSettings.getHeight(),
-          this.configSettings.getLabelColor(),
           this.configSettings.getBackgroundColor(),
           this.configSettings.getCPUColorList());
 
@@ -255,9 +250,7 @@ MyApplet.prototype = {
         this.swapGraph.paint(area,
           false, //never use labels for the backdrop
           this.configSettings.getMEMWidth(),
-          this.configSettings.getHeight(),
-          [0, 0, 0, 0],
-          [0, 0, 0, 0], //want a clear background so that it doesnt mess up the other one
+          this.configSettings.getHeight(), [0, 0, 0, 0], //want a clear background so that it doesnt mess up the other one
           this.configSettings.getSwapColorList());
 
         //paint the memory piechart over it
@@ -265,7 +258,6 @@ MyApplet.prototype = {
           this.configSettings.getLabelsOn(),
           this.configSettings.getMEMWidth(),
           this.configSettings.getHeight(),
-          this.configSettings.getLabelColor(),
           this.configSettings.getBackgroundColor(),
           this.configSettings.getMEMColorList());
 
@@ -282,7 +274,6 @@ MyApplet.prototype = {
           this.configSettings.getLabelsOn(),
           this.configSettings.getNETWidth(),
           this.configSettings.getHeight(),
-          this.configSettings.getLabelColor(),
           this.configSettings.getBackgroundColor(),
           this.configSettings.getNETColorList());
 
@@ -298,7 +289,6 @@ MyApplet.prototype = {
           this.configSettings.getLabelsOn(),
           this.configSettings.getDiskWidth(),
           this.configSettings.getHeight(),
-          this.configSettings.getLabelColor(),
           this.configSettings.getBackgroundColor(),
           this.configSettings.getDiskColorList());
 
@@ -308,7 +298,7 @@ MyApplet.prototype = {
       area.set_width(this.getAppletWidth());
 
     } catch (e) {
-      global.logError("in onGraphRepaint: " + e.stack);
+      global.logError("in onGraphRepaint: " + e);
     }
   }
 };
@@ -319,10 +309,8 @@ function main(metadata, orientation) {
   if (ImportError) {
     ErrorApplet = imports.ErrorApplet;
     var errmsg = ImportErrorMsg;
-    //we dont have the gtop package
-    if (typeof GTop === 'undefined') {
+    if (typeof GTop === 'undefined') //we dont have the gtop package
       errmsg = _("Please install \"gir1.2-gtop-2.0\" package.");
-    }
     let myErrorApplet = new ErrorApplet.ErrorImportApplet(orientation, errmsg);
     return myErrorApplet;
   } else {

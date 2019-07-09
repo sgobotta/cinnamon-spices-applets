@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd "files/multicore-sys-monitor@ccadeptic23"
+cd "files/multicore-sys-monitor@wasabi"
 cinnamon-xlet-makepot -o ./po/multicore-sys-monitor.pot ./
 cd "po"
 

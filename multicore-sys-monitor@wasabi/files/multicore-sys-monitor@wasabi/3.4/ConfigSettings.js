@@ -10,7 +10,7 @@ if (typeof require !== 'undefined') {
   findIndex = utils.findIndex;
   filter = utils.filter;
 } else {
-  const AppletDir = imports.ui.appletManager.applets['multicore-sys-monitor@ccadeptic23'];
+  const AppletDir = imports.ui.appletManager.applets['multicore-sys-monitor@wasabi'];
   tryFn = AppletDir.utils.tryFn;
   map = AppletDir.utils.map;
   findIndex = AppletDir.utils.findIndex;

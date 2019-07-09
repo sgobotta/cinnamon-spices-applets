@@ -1,6 +1,6 @@
 const GLib = imports.gi.GLib;
 const Gettext = imports.gettext;
-const UUID = 'multicore-sys-monitor@ccadeptic23';
+const UUID = 'multicore-sys-monitor@wasabi';
 // Translation support
 Gettext.bindtextdomain(UUID, GLib.get_home_dir() + '/.local/share/locale');
 const _ = function(str) {
